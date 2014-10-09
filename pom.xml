@@ -76,7 +76,8 @@
                 <configuration>  
                     <archive>  
                         <manifest>  
-                            <mainClass>com.ge.dh.wulmq.https.TrainBookFromConfig</mainClass>  
+                            <!-- <mainClass>com.ge.dh.wulmq.https.TrainBookFromConfig</mainClass> -->  
+                            <mainClass>com.ge.dh.wulmq.https.BookDispatcher</mainClass>
                         </manifest>  
                     </archive>  
                     <descriptorRefs>  
