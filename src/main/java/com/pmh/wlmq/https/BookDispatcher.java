@@ -19,8 +19,8 @@ public class BookDispatcher {
 	private TrainBook trainBook = null;
 
 	public void assign() throws KeyManagementException, NoSuchAlgorithmException, InterruptedException {
-		
-		TrainBook.loginStepWithMultipleThread();
+
+		TrainBook.loginUnderMultipleThread();
 
 		String startTimeConfig = config.getProperty("thread.start.time");
 		String endTimeConfig = config.getProperty("thread.end.time");
@@ -34,10 +34,11 @@ public class BookDispatcher {
 		List<Thread> threads = createThreads(startTime, endTime, interval, onceThreadNumber);
 		for (Thread thread : threads) {
 			thread.start();
-			thread.join();
 		}
 		
-
+		for (Thread thread : threads) {
+			thread.join();
+		}
 	}
 
 	private Date getTime(String timeConfig) {
@@ -66,8 +67,8 @@ public class BookDispatcher {
 			Date targetTime = new Date(time);
 
 			for (int j = 0; j < oneceThreadNumber; j++) {
-				BookDispatcher BookDispatcher=this;
-				Runnable target = new BookTask(time,BookDispatcher);
+				BookDispatcher BookDispatcher = this;
+				Runnable target = new BookTask(time, BookDispatcher);
 				Thread thread = new Thread(target);
 				thread.setName(String.format("%s_%s_%s", DateTimeUtils.getFormatedTime(targetTime), i, j));
 				result.add(thread);
@@ -79,13 +80,12 @@ public class BookDispatcher {
 
 	}
 
-	public void setCurrntFinished(TrainBook trainBook, JSONObject addResult) throws InterruptedException {
+	public void setCurrntFinished(TrainBook trainBook, JSONObject addResult) throws Exception {
 		synchronized (this) {
 			if (this.trainBook == null) {
 				this.trainBook = trainBook;
 				this.trainBook.submitWithEx(addResult);
 			}
-
 		}
 
 	}

@@ -30,16 +30,28 @@ import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.SingleClientConnManager;
+import org.apache.http.impl.conn.PoolingClientConnectionManager;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.CoreConnectionPNames;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 @Log4j
 public class HttpsUtils {
+
+	public static JSONObject ajaxPostSend(HttpClient httpClient, String url, String[] data) throws UnsupportedEncodingException, IOException,
+			ClientProtocolException, JSONException {
+		HttpResponse response = HttpsUtils.postMethodSend(httpClient, url, data);
+		String ret = EntityUtils.toString(response.getEntity());
+		log.info("ajax post response:" + ret);
+		JSONObject result = new JSONObject(ret);
+		return result;
+	}
 
 	public static HttpResponse getMethodSend(HttpClient httpClient, String url) throws IOException, ClientProtocolException {
 		log.info("get method url:" + url);
@@ -105,6 +117,52 @@ public class HttpsUtils {
 
 		// ClientConnectionManager cm = new SingleClientConnManager(params, schemeRegistry);
 		ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
+		HttpClient httpClient = new DefaultHttpClient(cm, params);
+
+		log.info("generate http client!");
+
+		return httpClient;
+	}
+	
+	
+	
+	public static HttpClient generateMultipleThreadHttpsClient() throws NoSuchAlgorithmException, KeyManagementException {
+
+		X509TrustManager tm = new X509TrustManager() {
+			public void checkClientTrusted(X509Certificate[] xcs, String string) {
+			}
+
+			public void checkServerTrusted(X509Certificate[] xcs, String string) {
+			}
+
+			public X509Certificate[] getAcceptedIssuers() {
+				return null;
+			}
+		};
+
+		SSLContext sslcontext = SSLContext.getInstance("TLS");
+
+		sslcontext.init(null, new TrustManager[] { tm }, null);
+
+		SSLSocketFactory socketFactory = new SSLSocketFactory(sslcontext, SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+		Scheme sch = new Scheme("https", 443, socketFactory);
+
+		SchemeRegistry schemeRegistry = new SchemeRegistry();
+		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+		schemeRegistry.register(sch);
+
+		HttpParams params = new BasicHttpParams();
+		params.setParameter(ConnManagerPNames.MAX_TOTAL_CONNECTIONS, 30);
+		params.setParameter(ConnManagerPNames.MAX_CONNECTIONS_PER_ROUTE, new ConnPerRouteBean(30));
+		params.setParameter(HttpProtocolParams.USE_EXPECT_CONTINUE, false);
+		HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+
+		params.setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 1000);
+		// params.setParameter(CoreConnectionPNames.SO_TIMEOUT, 1000);
+
+		ClientConnectionManager cm = new PoolingClientConnectionManager(schemeRegistry);
+		
+		
 		HttpClient httpClient = new DefaultHttpClient(cm, params);
 
 		log.info("generate http client!");

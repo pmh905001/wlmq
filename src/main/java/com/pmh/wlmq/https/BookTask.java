@@ -14,8 +14,9 @@ public class BookTask implements Runnable {
 	}
 
 	public void run() {
-		TrainBook task = new TrainBook(time, this.bookDispatcher);
 		try {
+			log.info("task executed!");
+			TrainBook task = new TrainBook(time, this.bookDispatcher);
 			task.book();
 		} catch (Exception e) {
 			log.error("task occurred exception", e);
