@@ -29,7 +29,6 @@ public class TrainBook {
 	public static void main(String[] args) throws Exception {
 
 		
-		//
 //		TrainBook trainBook = new TrainBook(0, new BookDispatcher());
 //		trainBook.bookWithoutEx();
 
