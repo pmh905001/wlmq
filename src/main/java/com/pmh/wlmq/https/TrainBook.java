@@ -27,8 +27,6 @@ public class TrainBook {
 	private static HttpClient httpClient;
 
 	public static void main(String[] args) throws Exception {
-
-		
 //		TrainBook trainBook = new TrainBook(0, new BookDispatcher());
 //		trainBook.bookWithoutEx();
 
