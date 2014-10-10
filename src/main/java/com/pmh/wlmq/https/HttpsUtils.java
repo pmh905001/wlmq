@@ -112,7 +112,7 @@ public class HttpsUtils {
 		params.setParameter(HttpProtocolParams.USE_EXPECT_CONTINUE, false);
 		HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 
-		params.setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 1000);
+//		params.setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 1000);
 		// params.setParameter(CoreConnectionPNames.SO_TIMEOUT, 1000);
 
 		// ClientConnectionManager cm = new SingleClientConnManager(params, schemeRegistry);

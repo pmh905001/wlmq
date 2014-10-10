@@ -28,7 +28,11 @@ public class RequestSenderWithRetry implements IRequestSender {
 			String shdwdh, String uuid, JSONObject fillResult) {
 		while (true) {
 			try {
-				return request.add(httpClient, keyWordSearchResult, loadDateStr, qqcs, qqds, hqhw, dddxtz, shdwdh, uuid, fillResult);
+				JSONObject addResult = request.add(httpClient, keyWordSearchResult, loadDateStr, qqcs, qqds, hqhw, dddxtz, shdwdh, uuid, fillResult);
+				if (!addResult.getBoolean("success")) {
+					throw new IllegalStateException("add failed!");
+				}
+				return addResult;
 			} catch (Throwable ex) {
 				log.error("add exception,retry!", ex);
 			}
@@ -81,8 +85,7 @@ public class RequestSenderWithRetry implements IRequestSender {
 			}
 		}
 	}
-	
-	
+
 	public void login(HttpClient httpClient) {
 
 		while (true) {

@@ -37,10 +37,11 @@ public class TrainBook {
 		JSONObject keyWordSearchResult = requestSender.keyWordSearch(httpClient, loadDateStr, keyMatched);
 		JSONObject fillResult = requestSender.postFillPage(httpClient, keyWordSearchResult);
 
+		log.info("start to wait");
 		while (System.currentTimeMillis() < timeToAdd) {
-			log.info("wait to add,sleep");
 			Thread.sleep(50);
 		}
+		log.info("end to wait");
 
 		String trainNumber = instance.getProperty("train.number");
 		String totalWeight = String.valueOf(Integer.valueOf(trainNumber) * 60);

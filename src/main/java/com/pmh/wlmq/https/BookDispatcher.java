@@ -7,8 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import lombok.extern.log4j.Log4j;
+
 import org.json.JSONObject;
 
+@Log4j
 public class BookDispatcher {
 
 	public static void main(String args[]) throws KeyManagementException, NoSuchAlgorithmException, InterruptedException {
@@ -83,9 +86,14 @@ public class BookDispatcher {
 	public void setCurrntFinished(TrainBook trainBook, JSONObject addResult) throws Exception {
 		synchronized (this) {
 			if (this.trainBook == null) {
+				log.info("submit it");
 				this.trainBook = trainBook;
 				this.trainBook.submitWithEx(addResult);
 			}
+			else{
+				log.info("ignore submit");
+			}
+			
 		}
 
 	}

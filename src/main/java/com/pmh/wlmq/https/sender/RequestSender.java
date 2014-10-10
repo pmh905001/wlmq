@@ -31,17 +31,11 @@ public class RequestSender implements IRequestSender {
 	}
 
 	public JSONObject submit(HttpClient httpClient, JSONObject addResult) throws Exception {
-
-		if (addResult.getBoolean("success")) {
-			String url = "https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/ZcrbjhAction_operateZcrbjh";
-			String[] data = new String[] { "op", "10", "uuids", addResult.getJSONObject("object").getString("uuid"), "mor_dzsw_security_info",
-					"mor_dzsw_security_disabled" };
-			// {"message":"操作成功","object":null,"success":true}
-			return HttpsUtils.ajaxPostSend(httpClient, url, data);
-		} else {
-			return null;
-		}
-
+		String url = "https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/ZcrbjhAction_operateZcrbjh";
+		String[] data = new String[] { "op", "10", "uuids", addResult.getJSONObject("object").getString("uuid"), "mor_dzsw_security_info",
+				"mor_dzsw_security_disabled" };
+		// {"message":"操作成功","object":null,"success":true}
+		return HttpsUtils.ajaxPostSend(httpClient, url, data);
 	}
 
 	public JSONObject add(HttpClient httpClient, JSONObject keyWordSearchResult, String loadDateStr, String qqcs, String qqds, String hqhw, String dddxtz,
