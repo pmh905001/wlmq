@@ -25,8 +25,8 @@ import com.pmh.wlmq.https.TesseractOCRUtils;
 public class RequestSender implements IRequestSender {
 
 	public static void main(String[] args) throws Exception {
-		// HttpClient httpClient = HttpsUtils.generateHttpsClient();
-		HttpClient httpClient = HttpsUtils.generateMultipleThreadHttpsClient();
+		HttpClient httpClient = HttpsUtils.generateHttpsClient();
+		// HttpClient httpClient = HttpsUtils.generateMultipleThreadHttpsClient();
 		new RequestSender().login(httpClient);
 	}
 
@@ -120,6 +120,7 @@ public class RequestSender implements IRequestSender {
 		String url = "https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/security/jcaptcha.jpg";
 		log.info("try to get captcha,request url:" + url);
 		HttpGet get = new HttpGet(url);
+		get.addHeader("Connection", "keep-alive");
 		HttpResponse response = client.execute(get);
 
 		log.info("try to get captcha,response ok,write to a file");

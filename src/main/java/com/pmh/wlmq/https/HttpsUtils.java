@@ -56,6 +56,7 @@ public class HttpsUtils {
 	public static HttpResponse getMethodSend(HttpClient httpClient, String url) throws IOException, ClientProtocolException {
 		log.info("get method url:" + url);
 		HttpGet get = new HttpGet(url);
+		get.addHeader("Connection", "keep-alive");
 		HttpResponse response = httpClient.execute(get);
 		return response;
 	}
@@ -70,6 +71,7 @@ public class HttpsUtils {
 			params.add(new BasicNameValuePair(data[i], data[i + 1]));
 		}
 		HttpPost post = new HttpPost(url);
+		post.addHeader("Connection", "keep-alive");
 		HttpResponse response = postMethodSend(httpClient, params, post);
 		return response;
 	}
