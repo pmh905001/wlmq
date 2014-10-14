@@ -34,6 +34,21 @@ public class DateTimeUtils {
 		String formatedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(instance.getTime());
 		return formatedDate;
 	}
+	
+	public static Date getTime(String timeConfig) {
+
+		Calendar calendar = Calendar.getInstance();
+		String[] arr = timeConfig.split(":");
+
+		int hourOfDay = Integer.valueOf(arr[0]);
+		int minute = Integer.valueOf(arr[1]);
+		int second = Integer.valueOf(arr[2]);
+		calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		calendar.set(Calendar.MINUTE, minute);
+		calendar.set(Calendar.SECOND, second);
+
+		return calendar.getTime();
+	}
 
 
 }

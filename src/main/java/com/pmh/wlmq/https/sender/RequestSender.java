@@ -2,6 +2,7 @@ package com.pmh.wlmq.https.sender;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
@@ -9,6 +10,7 @@ import lombok.extern.log4j.Log4j;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
@@ -159,6 +161,10 @@ public class RequestSender implements IRequestSender {
 		log.info("code is :" + result);
 
 		return result;
+	}
+
+	public void home(HttpClient httpClient) throws Exception {
+		HttpsUtils.getMethodSend(httpClient, "https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu");
 	}
 
 }

@@ -20,4 +20,6 @@ public interface IRequestSender {
 
 	public String tryToGetCaptcha(HttpClient client) throws Exception;
 
+	public void home(HttpClient httpClient)throws Exception;
+
 }

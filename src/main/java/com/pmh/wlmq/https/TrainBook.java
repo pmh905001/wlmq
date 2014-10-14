@@ -2,10 +2,12 @@ package com.pmh.wlmq.https;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 import lombok.extern.log4j.Log4j;
 
 import org.apache.http.client.HttpClient;
+import org.apache.http.params.CoreConnectionPNames;
 import org.json.JSONObject;
 
 import com.pmh.wlmq.https.sender.IRequestSender;
@@ -61,10 +63,33 @@ public class TrainBook {
 
 	public static void loginUnderMultipleThread() throws KeyManagementException, NoSuchAlgorithmException {
 
-//		httpClient = HttpsUtils.generateMultipleThreadHttpsClient();
+		// httpClient = HttpsUtils.generateMultipleThreadHttpsClient();
 		httpClient = HttpsUtils.generateHttpsClient();
 
 		new RequestSenderWithRetry(new RequestSender()).login(httpClient);
+
+	}
+
+	public static void keepSession() {
+
+		httpClient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 100);
+		httpClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 100);
+
+		long endTime = DateTimeUtils.getTime(Config.getInstance().getProperty("wait.target.time.after.login")).getTime();
+		RequestSenderWithRetry requestSender = new RequestSenderWithRetry(new RequestSender());
+		while (System.currentTimeMillis() < endTime) {
+			requestSender.home(httpClient);
+			try {
+				Thread.sleep(1000 * 10);
+			} catch (InterruptedException e) {
+				log.error(e);
+			}
+
+		}
+		// https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu
+
+		httpClient.getParams().removeParameter(CoreConnectionPNames.CONNECTION_TIMEOUT);
+		httpClient.getParams().removeParameter(CoreConnectionPNames.SO_TIMEOUT);
 
 	}
 }

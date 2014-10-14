@@ -24,14 +24,16 @@ public class BookDispatcher {
 	public void assign() throws KeyManagementException, NoSuchAlgorithmException, InterruptedException {
 
 		TrainBook.loginUnderMultipleThread();
+		
+		TrainBook.keepSession();
 
 		String startTimeConfig = config.getProperty("thread.start.time");
 		String endTimeConfig = config.getProperty("thread.end.time");
 		String intervalConfig = config.getProperty("thread.interval");
 		String onceThreadNumberConfig = config.getProperty("once.thread.number");
 
-		Date startTime = getTime(startTimeConfig);
-		Date endTime = getTime(endTimeConfig);
+		Date startTime = DateTimeUtils.getTime(startTimeConfig);
+		Date endTime = DateTimeUtils.getTime(endTimeConfig);
 		int interval = Integer.valueOf(intervalConfig);
 		int onceThreadNumber = Integer.valueOf(onceThreadNumberConfig);
 		List<Thread> threads = createThreads(startTime, endTime, interval, onceThreadNumber);
@@ -44,20 +46,7 @@ public class BookDispatcher {
 		}
 	}
 
-	private Date getTime(String timeConfig) {
-
-		Calendar calendar = Calendar.getInstance();
-		String[] arr = timeConfig.split(":");
-
-		int hourOfDay = Integer.valueOf(arr[0]);
-		int minute = Integer.valueOf(arr[1]);
-		int second = Integer.valueOf(arr[2]);
-		calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-		calendar.set(Calendar.MINUTE, minute);
-		calendar.set(Calendar.SECOND, second);
-
-		return calendar.getTime();
-	}
+	
 
 	private List<Thread> createThreads(Date startTime, Date endTime, int interval, int oneceThreadNumber) {
 
@@ -89,6 +78,7 @@ public class BookDispatcher {
 				log.info("submit it");
 				this.trainBook = trainBook;
 				this.trainBook.submitWithEx(addResult);
+				System.exit(0);
 			}
 			else{
 				log.info("ignore submit");
