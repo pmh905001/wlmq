@@ -72,20 +72,24 @@ public class TrainBook {
 
 	public static void keepSession() {
 
-		httpClient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 100);
-		httpClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 100);
+		httpClient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 1000);
+		httpClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 1000);
 
 		long endTime = DateTimeUtils.getTime(Config.getInstance().getProperty("wait.target.time.after.login")).getTime();
 		RequestSenderWithRetry requestSender = new RequestSenderWithRetry(new RequestSender());
+		
+		log.info("start to wait");
 		while (System.currentTimeMillis() < endTime) {
+			log.info("wait to add!");
 			requestSender.home(httpClient);
 			try {
-				Thread.sleep(1000 * 10);
+				Thread.sleep(1000 * 30);
 			} catch (InterruptedException e) {
 				log.error(e);
 			}
 
 		}
+		log.info("end to wait");
 		// https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu
 
 		httpClient.getParams().removeParameter(CoreConnectionPNames.CONNECTION_TIMEOUT);

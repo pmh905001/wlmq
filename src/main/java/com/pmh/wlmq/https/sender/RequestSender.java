@@ -13,6 +13,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.params.CoreConnectionPNames;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,8 +29,23 @@ public class RequestSender implements IRequestSender {
 
 	public static void main(String[] args) throws Exception {
 		HttpClient httpClient = HttpsUtils.generateHttpsClient();
+
+		httpClient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 1);
+		httpClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 1);
+
+		// HttpClient httpClient = HttpsUtils.generateMultipleThreadHttpsClient();
+		try {
+			new RequestSender().login(httpClient);
+		} catch (Exception e) {
+			log.error(e);
+		}
+
+		httpClient.getParams().removeParameter(CoreConnectionPNames.CONNECTION_TIMEOUT);
+		httpClient.getParams().removeParameter(CoreConnectionPNames.SO_TIMEOUT);
+
 		// HttpClient httpClient = HttpsUtils.generateMultipleThreadHttpsClient();
 		new RequestSender().login(httpClient);
+
 	}
 
 	public JSONObject submit(HttpClient httpClient, JSONObject addResult) throws Exception {
