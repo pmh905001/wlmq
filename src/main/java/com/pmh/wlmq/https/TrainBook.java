@@ -79,15 +79,20 @@ public class TrainBook {
 		RequestSenderWithRetry requestSender = new RequestSenderWithRetry(new RequestSender());
 		
 		log.info("start to wait");
-		while (System.currentTimeMillis() < endTime) {
-			log.info("wait to add!");
-			requestSender.home(httpClient);
-			try {
-				Thread.sleep(1000 * 30);
-			} catch (InterruptedException e) {
-				log.error(e);
+		try {
+			
+			while (System.currentTimeMillis() < endTime) {
+				log.info("wait to add!");
+				requestSender.home(httpClient);
+				try {
+					Thread.sleep(1000 * 30);
+				} catch (InterruptedException e) {
+					log.error("thread exception",e);
+				}
+				
 			}
-
+		} catch (Throwable e) {
+			log.error("occurred run time exception when wait",e);
 		}
 		log.info("end to wait");
 		// https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu

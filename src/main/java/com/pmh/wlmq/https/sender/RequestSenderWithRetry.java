@@ -104,7 +104,7 @@ public class RequestSenderWithRetry implements IRequestSender {
 		try {
 			request.home(httpClient);
 		} catch (Throwable ex) {
-			log.error("get home exception", ex);
+			log.error("go home exception", ex);
 		}
 
 	}

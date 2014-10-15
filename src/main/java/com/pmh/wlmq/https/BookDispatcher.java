@@ -15,7 +15,10 @@ import org.json.JSONObject;
 public class BookDispatcher {
 
 	public static void main(String args[]) throws KeyManagementException, NoSuchAlgorithmException, InterruptedException {
+		
 		new BookDispatcher().assign();
+		
+		
 	}
 
 	private Config config = Config.getInstance();
