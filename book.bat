@@ -1,0 +1,1 @@
+java -jar C:/daily-tasks/data/wlmq/target/wlmq-1.0-SNAPSHOT-jar-with-dependencies.jar
