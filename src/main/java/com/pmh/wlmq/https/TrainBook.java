@@ -48,6 +48,7 @@ public class TrainBook {
 				}
 			}
 		} catch (Throwable e) {
+			
 			log.error("loop occured exception", e);
 		}
 		log.info("end to wait");
