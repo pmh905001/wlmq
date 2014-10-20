@@ -32,7 +32,7 @@ public class TrainBook {
 	public void book() throws Exception {
 
 		Config instance = Config.getInstance();
-		String loadDateStr = instance.getProperty("load.date");
+		String loadDateStr = instance.getLoadDate();
 		String keyMatched = instance.getProperty("key.matched");
 
 		JSONObject keyWordSearchResult = requestSender.keyWordSearch(httpClient, loadDateStr, keyMatched);

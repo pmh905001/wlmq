@@ -13,8 +13,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.nio.charset.Charset;
+import java.util.Date;
 import java.util.Properties;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class Config {
 	private static Config instance = null;
@@ -35,23 +37,28 @@ public class Config {
 	void loadProperties() {
 		String propertiesFile = "config.properties";
 		try {
-			InputStream resourceAsStream = this.getClass().getClassLoader()
-					.getResourceAsStream(propertiesFile);
-			prop.load(new InputStreamReader(resourceAsStream,"UTF-8"));
+			InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream(propertiesFile);
+			prop.load(new InputStreamReader(resourceAsStream, "UTF-8"));
 		} catch (IOException e) {
-			URL resource = this.getClass().getClassLoader()
-					.getResource(propertiesFile);
+			URL resource = this.getClass().getClassLoader().getResource(propertiesFile);
 			String path = (resource == null) ? null : resource.getPath();
-			throw new RuntimeException(String.format("load %s(%s) fail",
-					propertiesFile, path), e);
+			throw new RuntimeException(String.format("load %s(%s) fail", propertiesFile, path), e);
 		}
 	}
 
 	public String getProperty(String key, String defaultValue) {
 		return this.prop.getProperty(key, defaultValue);
 	}
-	
+
 	public String getProperty(String key) {
 		return this.prop.getProperty(key);
+	}
+
+	public String getLoadDate() {
+		String result = getProperty("load.date");
+		if (result == null || StringUtils.isBlank(result)) {
+			result=DateTimeUtils.getFormatedDate(new Date(),10);
+		}
+		return result;
 	}
 }
