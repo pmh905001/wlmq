@@ -28,7 +28,7 @@ public class BookDispatcher {
 
 		TrainBook.loginUnderMultipleThread();
 		
-		TrainBook.keepSession();
+//		TrainBook.keepSession();
 
 		String startTimeConfig = config.getProperty("thread.start.time");
 		String endTimeConfig = config.getProperty("thread.end.time");

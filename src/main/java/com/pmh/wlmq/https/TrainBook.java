@@ -2,7 +2,6 @@ package com.pmh.wlmq.https;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 
 import lombok.extern.log4j.Log4j;
 
@@ -40,8 +39,16 @@ public class TrainBook {
 		JSONObject fillResult = requestSender.postFillPage(httpClient, keyWordSearchResult);
 
 		log.info("start to wait");
-		while (System.currentTimeMillis() < timeToAdd) {
-			Thread.sleep(50);
+		try {
+			while (System.currentTimeMillis() < timeToAdd) {
+				try {
+					Thread.sleep(50);
+				} catch (Throwable e) {
+					log.error("thread is interrupted or other runtime exception", e);
+				}
+			}
+		} catch (Throwable e) {
+			log.error("loop occured exception", e);
 		}
 		log.info("end to wait");
 
@@ -77,22 +84,22 @@ public class TrainBook {
 
 		long endTime = DateTimeUtils.getTime(Config.getInstance().getProperty("wait.target.time.after.login")).getTime();
 		RequestSenderWithRetry requestSender = new RequestSenderWithRetry(new RequestSender());
-		
+
 		log.info("start to wait");
 		try {
-			
+
 			while (System.currentTimeMillis() < endTime) {
 				log.info("wait to add!");
 				requestSender.home(httpClient);
 				try {
 					Thread.sleep(1000 * 30);
 				} catch (InterruptedException e) {
-					log.error("thread exception",e);
+					log.error("thread exception", e);
 				}
-				
+
 			}
 		} catch (Throwable e) {
-			log.error("occurred run time exception when wait",e);
+			log.error("occurred run time exception when wait", e);
 		}
 		log.info("end to wait");
 		// https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu
