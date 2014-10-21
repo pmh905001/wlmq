@@ -1,0 +1,678 @@
+2014-10-21 22:12:46,062[INFO][main] generate http client! (com.pmh.wlmq.https.HttpsUtils.generateHttpsClient(HttpsUtils.java:124))
+2014-10-21 22:12:46,125[INFO][main] try to get captcha,request url:https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/security/jcaptcha.jpg (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:139))
+2014-10-21 22:12:47,568[INFO][main] try to get captcha,response ok,write to a file (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:144))
+2014-10-21 22:12:47,585[INFO][main] write to a file finished, try to read it (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:173))
+2014-10-21 22:12:48,374[INFO][main] code is :;f—e dsé (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:177))
+2014-10-21 22:12:48,375[INFO][main] post method url:https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/j_spring_security_check (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:66))
+2014-10-21 22:12:48,375[INFO][main] request data,j_username:3085233 (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:48,376[INFO][main] request data,j_password:8721390 (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:48,376[INFO][main] request data,j_captcha:;f—e dsé (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:48,376[INFO][main] request data,fromUrl:/login_bur.jsp (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:48,582[INFO][main] try to login,response:<html><head><title>302 Moved Temporarily</title></head>
+<body bgcolor="#FFFFFF">
+<p>This document you requested has moved temporarily.</p>
+<p>It's now at <a href="http://hyfw.wulmq.cr:7001/Dzsw//login_bur.jsp">http://hyfw.wulmq.cr:7001/Dzsw//login_bur.jsp</a>.</p>
+</body></html>
+ (com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:113))
+2014-10-21 22:12:48,583[INFO][main] redirect url:/gateway/hydzsw/Dzsw/login_bur.jsp (com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:119))
+2014-10-21 22:12:48,583[INFO][main] login failed (com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:122))
+2014-10-21 22:12:48,584[ERROR][main] login exception,retry! (com.pmh.wlmq.https.sender.RequestSenderWithRetry.login(RequestSenderWithRetry.java:98))
+java.lang.IllegalStateException
+	at com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:123)
+	at com.pmh.wlmq.https.sender.RequestSenderWithRetry.login(RequestSenderWithRetry.java:95)
+	at com.pmh.wlmq.https.SessionTimer.main(SessionTimer.java:24)
+2014-10-21 22:12:48,588[INFO][main] try to get captcha,request url:https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/security/jcaptcha.jpg (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:139))
+2014-10-21 22:12:49,428[INFO][main] try to get captcha,response ok,write to a file (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:144))
+2014-10-21 22:12:49,440[INFO][main] write to a file finished, try to read it (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:173))
+2014-10-21 22:12:49,624[INFO][main] code is :vech (com.pmh.wlmq.https.sender.RequestSender.tryToGetCaptcha(RequestSender.java:177))
+2014-10-21 22:12:49,625[INFO][main] post method url:https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/j_spring_security_check (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:66))
+2014-10-21 22:12:49,625[INFO][main] request data,j_username:3085233 (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:49,626[INFO][main] request data,j_password:8721390 (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:49,626[INFO][main] request data,j_captcha:vech (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:49,626[INFO][main] request data,fromUrl:/login_bur.jsp (com.pmh.wlmq.https.HttpsUtils.postMethodSend(HttpsUtils.java:70))
+2014-10-21 22:12:52,481[INFO][main] try to login,response:<html><head><title>302 Moved Temporarily</title></head>
+<body bgcolor="#FFFFFF">
+<p>This document you requested has moved temporarily.</p>
+<p>It's now at <a href="http://hyfw.wulmq.cr:7001/Dzsw/home.jsp">http://hyfw.wulmq.cr:7001/Dzsw/home.jsp</a>.</p>
+</body></html>
+ (com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:113))
+2014-10-21 22:12:52,482[INFO][main] redirect url:/gateway/hydzsw/Dzsw/home.jsp (com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:119))
+2014-10-21 22:12:52,482[INFO][main] login success (com.pmh.wlmq.https.sender.RequestSender.login(RequestSender.java:125))
+2014-10-21 22:12:52,482[INFO][main] session timer start (com.pmh.wlmq.https.SessionTimer.main(SessionTimer.java:26))
+2014-10-21 22:32:52,483[INFO][main] get method url:https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu (com.pmh.wlmq.https.HttpsUtils.getMethodSend(HttpsUtils.java:57))
+2014-10-21 22:32:54,722[INFO][main] <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <title>外部用户首页</title>
+  <link href="/gateway/hydzsw/Dzsw/resources/css/new/agreement.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/gateway/hydzsw/Dzsw/resources/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/gateway/hydzsw/Dzsw/resources/js/jquery_ui/jquery.messager.js"></script>
+<script language="javascript">
+ 
+	        $(document).ready(function(){	
+
+				$(".groupbg img").each(function(){
+					$(this).bind('click',function(){
+						var _this = $(this);
+						//alert(_this.parent().parent().attr("id"));
+						var _menu_div = _this.parent().next().next();
+						//alert($(_menu_div).is(":hidden"));//visible ,hidden
+						if($(_menu_div).is(":visible") || $(_menu_div).css("display") != 'none'){
+							/*blind bounce clip drop explode fold highlight puff pulsate scale shake size slide							*/
+							$(_menu_div).hide("slow");
+							_this.attr("src","../resources/images/new/images/agreement/myjob_left_group2.jpg");
+						}else{
+							$(".groupbg img").each(function(){
+								var _other_menu_div = $(this).parent().next().next();
+								if($(_other_menu_div).is(":visible") || $(_other_menu_div).css("display") != 'none'){
+									$(_other_menu_div).hide("slow");
+									$(this).attr("src","../resources/images/new/images/agreement/myjob_left_group2.jpg");
+								}
+							});
+							$(_menu_div).show("slow");
+							_this.attr("src","../resources/images/new/images/agreement/myjob_left_group1.jpg");
+						}
+					});
+				});
+		           
+	           $(".rigback").each(function(){
+	              $(this).bind('mouseover',mouseoverFn).bind('mouseout',mouseoutFn);
+	              
+	              $(this).bind('click',function(){
+	                  resetPreviousActiveBlock();
+	                  resetPreviousActiveLink();
+	                  $(".agr_leftorder4").attr("className","agr_leftorder5");
+                      this.style.color='#ffffff';
+                      this.style.background="url('/gateway/hydzsw/Dzsw/resources/images/new/images/agreement/myjob_xz.png')";
+                      $(this).unbind('mouseout');
+                      $(this).unbind('mouseover');
+                      $(this).attr('id','just4tmpuse');
+                  });
+                  
+	           }); 
+	           
+	           $(".agr_leftorder5").each(function(){
+	               $(this).click(function(){
+	                   $(".agr_leftorder4").attr("className","agr_leftorder5");
+	                   $(this).attr("className","agr_leftorder4");
+	               });
+	           });
+	           
+	           $(".agr_top_text").each(function(){
+                   $(this).click(function(){
+                       resetPreviousActiveBlock();
+                       resetPreviousActiveLink();
+                       $(".agr_leftorder4").attr("className","agr_leftorder5");
+                       this.style.color='#ffff00';
+                       $(this).attr("id","just4tmpuse2");
+                   });
+               });
+	        
+	            var curMenuParentId="#"+"";
+	            $(".leftfMenu").css('display','none');
+	            if(curMenuParentId!="#")
+	                $(curMenuParentId).css('display','inline');
+	            else
+	                $("#803").css('display','inline');
+
+				
+				
+				
+	            
+
+	            $("#bar").css("width",$("#bar .rigback").size()*99+"px");
+	        });
+	        
+	        function showMsg(){
+	            loadContent("/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=390");
+	            //loadContent("/gateway/hydzsw/Dzsw/action/InternalMsgAction_initReceivedMsgQuery");
+	            $.messager.msgHide();
+	        }
+	        
+	        function mouseoverFn(){
+	            this.style.color='#333333';
+                this.style.background="url('/gateway/hydzsw/Dzsw/resources/images/new/images/agreement/myjob_yd.png')";
+	        }
+	        
+	        function mouseoutFn(){
+	            this.style.color='#333333';
+                this.style.background="url('/gateway/hydzsw/Dzsw/resources/images/new/images/agreement/myjob_bj.png')";
+	        }
+	        
+	        function showMenu(menuid){ 
+	            $(".leftfMenu").css('display','none');
+	            $("#"+menuid).show(500);
+	            $("#navTab").attr("src","/gateway/hydzsw/Dzsw/page/workplatform-welcomeManage-welcome");
+	        }
+	        
+	        function resetPreviousActiveBlock(){
+	           $("#just4tmpuse").each(function(){
+                   this.style.color='#333333';
+                   $(this).removeAttr('id');
+                   $(this).bind('mouseover',mouseoverFn).bind('mouseout',mouseoutFn);
+                   this.style.background="url('/gateway/hydzsw/Dzsw/resources/images/new/images/agreement/myjob_bj.png')"; 
+               });
+	        }
+	        
+	        function resetPreviousActiveLink(){
+               $("#just4tmpuse2").each(function(){
+                   this.style.color='';
+                   $(this).removeAttr('id');
+               });
+            }
+	        
+	        function loadContent(url){
+	           $("#navTab").attr("src",url);
+	        }
+	        function welcome(url){		           
+	           $(".leftfMenu").css('display','none');
+	           $("#803").show(500);
+	           $("#navTab").attr("src",url);
+		    }
+	        //Iframe 自适应高度
+			function iFrameHeight(){
+
+			var iframe = document.getElementById("navTab");
+			
+			try{
+			var bHeight=iframe.contentWindow.document.body.scrollHeight;
+			var dHeight =iframe.contentWindow.document.documentElement.scrollHeight;
+	        var height=Math.max(bHeight,dHeight);
+			iframe.height=height;
+			$(".agr_leftorder").css('height',height);
+			}catch (ex){}
+			
+			}
+			
+			window.setInterval("iFrameHeight()", 1000);
+			
+			var rollCount = 0;
+			function roll(flag){
+				if(flag == 'right'){
+					if(rollCount < $("#bar .rigback").size()-8){
+						rollCount++;
+					}
+				}else{
+					if(rollCount > 0){
+						rollCount--;
+					}
+				}
+				$("#bar").animate({marginLeft:(-99*rollCount)+'px'});
+			}
+	    
+</script>
+</head>
+<body>
+  <div class="agr_main">
+    <div class="agr_topbj">
+      <div class="agr_lj">----乌鲁木齐铁路局</div>
+      <div class="agr_toptext" style="width:550px;">
+        <div class="agr_top_text2" style="cursor:pointer;">
+          <a><span onclick="javascript:location.href='/gateway/hydzsw/Dzsw/home.jsp'">返回主页</span></a>
+        </div>
+        <div class="agr_top_text" style="cursor:pointer;" onclick="showMenu('1465')">
+          <a>集装箱服务</a>
+        </div>
+        <div class="agr_top_text" style="cursor:pointer;" onclick="showMenu('1327')">
+          <a>特快快速</a>
+        </div>
+        <div class="agr_top_text" style="cursor:pointer;" onclick="showMenu('1102')">
+          <a>接卸建议</a>
+        </div>
+        <div class="agr_top_text" style="cursor:pointer;" onclick="showMenu('453')">
+          <a>统计分析</a>
+        </div>
+        <div class="agr_top_text" style="cursor:pointer;" onclick="showMenu('388')">
+          <a>站内消息</a>
+        </div>
+        <div class="agr_top_text" style="cursor:pointer;" onclick="showMenu('780')">
+          <a>自助服务</a>
+        </div>
+        <div class="agr_top_text3">
+          <span onclick="javascript:location.href='/gateway/hydzsw/Dzsw/logout'">退出</span>
+        </div>
+      </div>
+    </div>
+    <div class="agr_content">
+      <div class="agr_content1">
+        <div class="agr_left">
+          <div class="agr_left2">
+            <span style="display:inline-block;width:120px;margin-left:50px;">欢迎您：3085233</span>
+            <div class="clear"></div>
+            <span style="display:inline-block;width:177px;overflow:hidden;white-space:nowrap;margin-left:5px;">彭山县凯达粮油经营部</span>
+            <div class="clear"></div>
+            <span style="display:inline-block;width:177px;overflow:hidden;white-space:nowrap;margin-left:5px;">彭山县凯达粮油经营部管理员</span>
+          </div>
+          <div class="agr_left3" onclick="showMenu('803')">
+            <img alt="" src="/gateway/hydzsw/Dzsw/resources/images/new/images/agreement/myjob_text.png" />
+          </div>
+        </div>
+        <div class="agr_right">
+          <div class="agr_right2">
+            <div id="leftBtn" class="scroll_bar" onclick="roll('left');" style="cursor:pointer;vertical-align:middle;background:url(&quot;/gateway/hydzsw/Dzsw/resources/images/Fold.jpg&quot;) no-repeat 0px 18px;"></div>
+            <div id="scrollBar" style="overflow:hidden;float:left;width:790px;position:relative;">
+              <div id="bar" style="float:left;width:5000px;height:76px;">
+                <div class="rigback" onclick="welcome('/gateway/hydzsw/Dzsw/action/OutCustWelcomeAction_outCustWelcomeInit')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="" src="/gateway/hydzsw/Dzsw/resources/images/new/images/agreement/myjob_cf.gif" />
+                  </div>
+                  <div class="rig_text">
+                    <span>欢迎页面</span>
+                  </div>
+                </div>
+                <div class="rig_xian"></div>
+                <div class="rigback" title="可提报阶段运输需求。" id="hid732" onclick="showMenu('732')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="阶段运输需求" src="/gateway/hydzsw/Dzsw/resources/images/new/images/pactCust/xdd.png" />
+                  </div>
+                  <div class="rig_text">
+                    <span>阶段运输需求</span>
+                  </div>
+                </div>
+                <div class="rig_xian"></div>
+                <div class="rigback" title="可提报未来30日内任一日具体需求。" id="hid869" onclick="showMenu('869')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="日运输需求" src="/gateway/hydzsw/Dzsw/resources/images/new/images/pactCust/zcyy.png" />
+                  </div>
+                  <div class="rig_text">
+                    <span>日运输需求</span>
+                  </div>
+                </div>
+                <div class="rig_xian"></div>
+                <div class="rigback" title="可提报单项物流服务需求或门到门全程综合物流服务需求。" id="hid729" onclick="showMenu('729')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="物流服务" src="/gateway/hydzsw/Dzsw/resources/images/new/images/pactCust/wlfw.png" />
+                  </div>
+                  <div class="rig_text">
+                    <span>物流服务</span>
+                  </div>
+                </div>
+                <div class="rig_xian"></div>
+                <div class="rigback" title="可通过车号、货票号、箱号查询货物在途信息。" id="hid12" onclick="showMenu('12')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="在途追踪" src="/gateway/hydzsw/Dzsw/resources/images/new/images/pactCust/ztys.png" />
+                  </div>
+                  <div class="rig_text">
+                    <span>在途追踪</span>
+                  </div>
+                </div>
+                <div class="rig_xian"></div>
+                <div class="rigback" title="" id="hid1656" onclick="showMenu('1656')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="国联运单服务" src="/gateway/hydzsw/Dzsw/resources/images/new/images/pactCust/jfcx.png" />
+                  </div>
+                  <div class="rig_text">
+                    <span>国联运单服务</span>
+                  </div>
+                </div>
+                <div class="rig_xian"></div>
+                <div class="rigback" title="可提出对铁路货运工作的意见和建议。" id="hid361" onclick="showMenu('361')" style="cursor:pointer;">
+                  <div class="rig_img">
+                    <img alt="投诉与建议" src="/gateway/hydzsw/Dzsw/resources/images/new/images/pactCust/sqdd.gif" />
+                  </div>
+                  <div class="rig_text">
+                    <span>投诉与建议</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="rightBtn" class="scroll_bar" onclick="roll('right');" style="cursor:pointer;vertical-align:middle;background:url(&quot;/gateway/hydzsw/Dzsw/resources/images/Fold1.jpg&quot;) no-repeat 0px 18px;"></div>
+            <div class="rig_deng">
+              <div class="rig_deng2"></div>
+              <div class="rig_deng3">
+                <span style="color:#f30;"></span>&nbsp;&nbsp;欢迎使用铁路货运电子商务系统。
+              </div>
+              <div class="rig_deng4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="agreement_content">
+          <div class="agr_leftorder">
+            <div class="leftfMenu" id="803">
+              <div class="agr_leftorder2">我的工作</div>
+              <div>
+                <div id="cid804" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=804&quot;)">
+                  <span>我的物流</span>
+                </div>
+                <div id="cid805" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=805&quot;)">
+                  <span>我的阶段需求</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="732">
+              <div class="agr_leftorder2">阶段运输需求</div>
+              <div>
+                <div id="cid800" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=800&quot;)">
+                  <span>阶段运输需求</span>
+                </div>
+                <div id="cid735" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=735&quot;)">
+                  <span>阶段需求查询</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="869">
+              <div class="agr_leftorder2">日运输需求</div>
+              <div>
+                <div id="cid3828" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=3828&quot;)">
+                  <span>日运输需求</span>
+                </div>
+                <div id="cid3829" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=3829&quot;)">
+                  <span>日需求查询</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="729">
+              <div class="agr_leftorder2">物流服务</div>
+              <div>
+                <div id="cid730" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=730&quot;)">
+                  <span>物流需求提报</span>
+                </div>
+                <div id="cid731" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=731&quot;)">
+                  <span>物流需求查询</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="12">
+              <div class="agr_leftorder2">在途追踪</div>
+              <div>
+                <div id="cid1035" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1035&quot;)">
+                  <span>货车追踪</span>
+                </div>
+                <div id="cid1043" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1043&quot;)">
+                  <span>集装箱追踪</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="1465">
+              <div class="agr_leftorder2">集装箱服务</div>
+              <div>
+                <div id="cid1619" class="groupbg" style="cursor:pointer;">
+                  <div style="float:left;">
+                    <img src="../resources/images/new/images/agreement/myjob_left_group2.jpg" />
+                  </div>
+                  <span class="group_title">订箱</span>
+                  <div style="display:none;">
+                    <ul>
+                      <li>
+                        <div id="cid1555" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1555&quot;)">
+                          <span>空箱资源查询</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1412" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1412&quot;)">
+                          <span>空箱预订提报</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1415" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1415&quot;)">
+                          <span>空箱预订处理</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1466" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1466&quot;)">
+                          <span>空箱预订查询</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1468" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1468&quot;)">
+                          <span>已提箱号查询</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1554" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1554&quot;)">
+                          <span>积分查询</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1599" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1599&quot;)">
+                          <span>配箱分析</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="cid1620" class="groupbg" style="cursor:pointer;">
+                  <div style="float:left;">
+                    <img src="../resources/images/new/images/agreement/myjob_left_group2.jpg" />
+                  </div>
+                  <span class="group_title">运单</span>
+                  <div style="display:none;">
+                    <ul>
+                      <li>
+                        <div id="cid1453" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1453&quot;)">
+                          <span>填写自备箱运单</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1608" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1608&quot;)">
+                          <span>补填箱号</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1469" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1469&quot;)">
+                          <span>运单处理</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1470" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1470&quot;)">
+                          <span>运单查询</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="cid1621" class="groupbg" style="cursor:pointer;">
+                  <div style="float:left;">
+                    <img src="../resources/images/new/images/agreement/myjob_left_group2.jpg" />
+                  </div>
+                  <span class="group_title">订车</span>
+                  <div style="display:none;">
+                    <ul>
+                      <li>
+                        <div id="cid1471" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1471&quot;)">
+                          <span>订车</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1473" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1473&quot;)">
+                          <span>退订车</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1536" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1536&quot;)">
+                          <span>订车查询</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1600" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1600&quot;)">
+                          <span>配车分析</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="cid1622" class="groupbg" style="cursor:pointer;">
+                  <div style="float:left;">
+                    <img src="../resources/images/new/images/agreement/myjob_left_group2.jpg" />
+                  </div>
+                  <span class="group_title">信息公告</span>
+                  <div style="display:none;">
+                    <ul>
+                      <li>
+                        <div id="cid1614" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1614&quot;)">
+                          <span>单箱需求发布</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="cid1615" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1615&quot;)">
+                          <span>公示公告</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="1327">
+              <div class="agr_leftorder2">特快快速</div>
+              <div>
+                <div id="cid1328" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1328&quot;)">
+                  <span>客户须知</span>
+                </div>
+                <div id="cid1329" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1329&quot;)">
+                  <span>产品介绍</span>
+                </div>
+                <div id="cid1330" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1330&quot;)">
+                  <span>余车查询</span>
+                </div>
+                <div id="cid1332" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1332&quot;)">
+                  <span>办理机构</span>
+                </div>
+                <div id="cid1333" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1333&quot;)">
+                  <span>产品预订</span>
+                </div>
+                <div id="cid1334" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1334&quot;)">
+                  <span>长协预订</span>
+                </div>
+                <div id="cid1335" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1335&quot;)">
+                  <span>订单管理</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="1102">
+              <div class="agr_leftorder2">接卸建议</div>
+              <div>
+                <div id="cid1233" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1233&quot;)">
+                  <span>卸车能力提报</span>
+                </div>
+                <div id="cid1234" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1234&quot;)">
+                  <span>卸车能力查询</span>
+                </div>
+                <div id="cid1514" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1514&quot;)">
+                  <span>卸车能力公示</span>
+                </div>
+                <div id="cid1237" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1237&quot;)">
+                  <span>卸车能力统计</span>
+                </div>
+                <div id="cid1216" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1216&quot;)">
+                  <span>接卸建议提报</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="1656">
+              <div class="agr_leftorder2">国联运单服务</div>
+              <div>
+                <div id="cid1657" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1657&quot;)">
+                  <span>国联运单提报</span>
+                </div>
+                <div id="cid1658" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1658&quot;)">
+                  <span>国联运单查询</span>
+                </div>
+                <div id="cid1662" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1662&quot;)">
+                  <span>运单批量导入</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="453">
+              <div class="agr_leftorder2">统计分析</div>
+              <div>
+                <div id="cid253" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=253&quot;)">
+                  <span>需求关联查询</span>
+                </div>
+                <div id="cid788" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=788&quot;)">
+                  <span>客户发货统计</span>
+                </div>
+                <div id="cid873" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=873&quot;)">
+                  <span>客户发站品名统计</span>
+                </div>
+                <div id="cid874" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=874&quot;)">
+                  <span>客户品名到站统计</span>
+                </div>
+                <div id="cid790" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=790&quot;)">
+                  <span>需求分组统计</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="361">
+              <div class="agr_leftorder2">投诉与建议</div>
+              <div>
+                <div id="cid1523" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1523&quot;)">
+                  <span>投诉与建议提报</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="388">
+              <div class="agr_leftorder2">站内消息</div>
+              <div>
+                <div id="cid390" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=390&quot;)">
+                  <span>接收消息</span>
+                </div>
+                <div id="cid393" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=393&quot;)">
+                  <span>已删消息</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+            <div class="leftfMenu" id="780">
+              <div class="agr_leftorder2">自助服务</div>
+              <div>
+                <div id="cid782" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=782&quot;)">
+                  <span>个人资料修改</span>
+                </div>
+                <div id="cid1127" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1127&quot;)">
+                  <span>密码问题重置</span>
+                </div>
+                <div id="cid1026" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1026&quot;)">
+                  <span>企业信息申请</span>
+                </div>
+                <div id="cid1040" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=1040&quot;)">
+                  <span>数据权限申请</span>
+                </div>
+                <div id="cid401" class="agr_leftorder5" style="cursor:pointer;" onclick="loadContent(&quot;/gateway/hydzsw/Dzsw/action/NavigationAction_redirect?classId=401&quot;)">
+                  <span>短信服务定制</span>
+                </div>
+              </div>
+              <div class="agr_leftorder3"></div>
+              <div class="agr_leftorder6"></div>
+            </div>
+          </div>
+          <div class="rightf" style="height:auto !important;height:800px;min-height:800px;width:810px;">
+            <iframe name="navTab" id="navTab" width="100%" height="100%" frameborder="0" scrolling="no" src="/gateway/hydzsw/Dzsw/action/OutCustWelcomeAction_outCustWelcomeInit" onload="this.height=800"></iframe>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="agreebottom">版权：铁道部信息技术中心　乌鲁木齐铁路局</div>
+      </div>
+      <div class="clear"></div>
+      <div class="agreebottom" style="background:none;"></div>
+    </div>
+  </div>
+</body>
+</html> (com.pmh.wlmq.https.SessionTimer.main(SessionTimer.java:35))
+2014-10-21 22:32:54,725[INFO][main] session timer end (com.pmh.wlmq.https.SessionTimer.main(SessionTimer.java:41))
+2014-10-21 22:32:54,725[INFO][main] cost time is:1202243 (com.pmh.wlmq.https.SessionTimer.main(SessionTimer.java:42))
