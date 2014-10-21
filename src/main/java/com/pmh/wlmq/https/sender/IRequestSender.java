@@ -1,5 +1,6 @@
 package com.pmh.wlmq.https.sender;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.json.JSONObject;
 
@@ -20,6 +21,6 @@ public interface IRequestSender {
 
 	public String tryToGetCaptcha(HttpClient client) throws Exception;
 
-	public void home(HttpClient httpClient)throws Exception;
+	public HttpResponse home(HttpClient httpClient)throws Exception;
 
 }

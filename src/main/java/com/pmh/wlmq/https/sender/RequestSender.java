@@ -179,8 +179,8 @@ public class RequestSender implements IRequestSender {
 		return result;
 	}
 
-	public void home(HttpClient httpClient) throws Exception {
-		HttpsUtils.getMethodSend(httpClient, "https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu");
+	public  HttpResponse home(HttpClient httpClient) throws Exception {
+		return HttpsUtils.getMethodSend(httpClient, "https://frontier.wulmq.12306.cn/gateway/hydzsw/Dzsw/action/WorkPlatformAction_getCurBgMenu");
 	}
 
 }

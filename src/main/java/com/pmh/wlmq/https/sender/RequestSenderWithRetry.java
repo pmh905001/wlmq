@@ -2,6 +2,7 @@ package com.pmh.wlmq.https.sender;
 
 import lombok.extern.log4j.Log4j;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.json.JSONObject;
 
@@ -99,13 +100,15 @@ public class RequestSenderWithRetry implements IRequestSender {
 		}
 	}
 
-	public void home(HttpClient httpClient) {
+	public HttpResponse home(HttpClient httpClient) {
 
+		HttpResponse result = null;
 		try {
-			request.home(httpClient);
+			result = request.home(httpClient);
 		} catch (Throwable ex) {
 			log.error("go home exception", ex);
 		}
+		return result;
 
 	}
 
