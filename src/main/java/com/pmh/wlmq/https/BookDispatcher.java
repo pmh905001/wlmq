@@ -3,7 +3,6 @@ package com.pmh.wlmq.https;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -14,11 +13,26 @@ import org.json.JSONObject;
 @Log4j
 public class BookDispatcher {
 
-	public static void main(String args[]) throws KeyManagementException, NoSuchAlgorithmException, InterruptedException {
+	public static void main(String args[])  {
+
+		try {
+			new BookDispatcher().assign();
+
+		} catch (Throwable e) {
+			log.error("system exit with the exception", e);
+		}
 		
-		new BookDispatcher().assign();
+		log.info("start dead loop");
+		try {
+			while(true){
+				Thread.sleep(1000);
+			}
+			
+		} catch (Exception e) {
+			log.error("system exit with the exception when dead loop", e);
+		}
 		
-		
+		log.info("end dead loop");
 	}
 
 	private Config config = Config.getInstance();
@@ -27,8 +41,8 @@ public class BookDispatcher {
 	public void assign() throws KeyManagementException, NoSuchAlgorithmException, InterruptedException {
 
 		TrainBook.loginUnderMultipleThread();
-		
-//		TrainBook.keepSession();
+
+		// TrainBook.keepSession();
 
 		String startTimeConfig = config.getProperty("thread.start.time");
 		String endTimeConfig = config.getProperty("thread.end.time");
@@ -43,13 +57,16 @@ public class BookDispatcher {
 		for (Thread thread : threads) {
 			thread.start();
 		}
-		
-		for (Thread thread : threads) {
-			thread.join();
-		}
-	}
 
-	
+		log.info("start loop to wait other threads finish");
+		for (Thread thread : threads) {
+			log.info("thread join:"+thread.getName());
+			thread.join();
+			log.info("thread finished:"+thread.getName());
+		}
+		log.info("end loop to wait other threads finish");
+		
+	}
 
 	private List<Thread> createThreads(Date startTime, Date endTime, int interval, int oneceThreadNumber) {
 
@@ -82,11 +99,10 @@ public class BookDispatcher {
 				this.trainBook = trainBook;
 				this.trainBook.submitWithEx(addResult);
 				System.exit(0);
-			}
-			else{
+			} else {
 				log.info("ignore submit");
 			}
-			
+
 		}
 
 	}
